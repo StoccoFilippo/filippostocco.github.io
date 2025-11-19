@@ -1,12 +1,24 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Update Time & Date
+    function updateTime() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+        const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 
-// shoe the current time
-const now = new Date();
-const timeOptions = { hour: '2-digit', minute: '2-digit' };
-const timeFormatted = now.toLocaleTimeString('en-US', timeOptions);
-document.getElementById('timehr').textContent = timeFormatted;
+        const el = document.getElementById('time-display');
+        if (el) {
+            el.innerHTML = `${dateStr} <span style="opacity:0.6">|</span> ${timeStr}`;
+        }
+    }
 
-// Show current date
-const dateOptions = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
-const dateFormatted = now.toLocaleDateString('en-US', dateOptions);
-document.getElementById('datetime').textContent = dateFormatted;
+    updateTime();
+    setInterval(updateTime, 1000);
 
+    // 2. Navbar Scroll Effect
+    const nav = document.querySelector('.nav');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 400);
+        });
+    }
+});

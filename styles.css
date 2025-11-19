@@ -90,11 +90,10 @@ a {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  /* Seamless override for nav */
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  border: none;
   box-shadow: none;
+  border-radius: 1.5rem;
 }
 
 .nav-links a {
@@ -110,14 +109,14 @@ a {
 }
 
 /* Glass Panel Utility */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.04);
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.5rem;
-  color: #eee;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Sections */
 section {
